@@ -1,0 +1,23 @@
+Source: artoolkitplus
+Section: libs
+Priority: extra
+Maintainer: Philippe Coval <rzr@users.sf.net>
+Build-Depends: debhelper (>= 5) , libqt3-mt-dev
+Standards-Version: 3.7.2
+
+Package: artoolkitplus
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: C++ library used to calculate a camera position.
+ ARToolKit is a software library that can be used to calculate 
+ camera position and orientation relative to physical markers 
+ in real time.
+ .
+ This enables the easy development of a wide range of 
+ Augmented Reality applications.
+ .
+ ARToolKitPlus is an extended version of ARToolKit's vision code 
+ that adds features, but breaks compatibility due to a new class-based API.
+ .
+  Homepage: http://studierstube.icg.tu-graz.ac.at/handheld_ar/artoolkitplus.php
+
