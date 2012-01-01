@@ -1,0 +1,24 @@
+diff -rupN ARToolKitPlus-2.1.1/include/ARToolKitPlus/TrackerImpl.h ARToolKitPlus-2.1.1_mod/include/ARToolKitPlus/TrackerImpl.h
+--- ARToolKitPlus-2.1.1/include/ARToolKitPlus/TrackerImpl.h	2006-07-25 16:05:46.000000000 +0200
++++ ARToolKitPlus-2.1.1_mod/include/ARToolKitPlus/TrackerImpl.h	2010-05-16 11:49:26.594634933 +0200
+@@ -198,7 +198,7 @@ public:
+ 	 * in an ARToolKit camera calibration file.
+ 	 * Returns true if loading of the camera file succeeded.
+ 	 */
+-	static bool calcCameraMatrix(const char* nCamParamFile, int nWidth, int nHeight,
++	virtual bool calcCameraMatrix(const char* nCamParamFile, int nWidth, int nHeight,
+ 								 ARFloat nNear, ARFloat nFar, ARFloat *nMatrix);
+ 
+ 	
+diff -rupN ARToolKitPlus-2.1.1/src/TrackerImpl.cxx ARToolKitPlus-2.1.1_mod/src/TrackerImpl.cxx
+--- ARToolKitPlus-2.1.1/src/TrackerImpl.cxx	2006-07-25 16:05:46.000000000 +0200
++++ ARToolKitPlus-2.1.1_mod/src/TrackerImpl.cxx	2010-05-16 11:49:47.049885735 +0200
+@@ -446,7 +446,7 @@ AR_TEMPL_TRACKER::calcCameraMatrix(const
+ 		return(false);
+ 	}
+ 
+-	pCam->changeFrameSize(AR_TEMPL_TRACKER::screenWidth,AR_TEMPL_TRACKER::screenHeight);
++	pCam->changeFrameSize(screenWidth,screenHeight);
+ 
+ 	int i;
+     for(i = 0; i < 4; i++ )

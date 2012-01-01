@@ -2,7 +2,8 @@ Source: artoolkitplus
 Section: libs
 Priority: extra
 Maintainer: Philippe Coval <rzr@users.sf.net>
-Build-Depends: debhelper (>= 5) , libqt3-mt-dev
+Build-Depends: debhelper
+  , libqt4-dev | libqt3-mt-dev
 Standards-Version: 3.7.2
 
 Package: artoolkitplus

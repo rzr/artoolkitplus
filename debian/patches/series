@@ -1,0 +1,9 @@
+abuild.patch
+calcCameraMatrix.patch
+#dont-install-doc.patch
+include.patch
+qmake-release.patch
+tmp.patch
+#qt4.patch
+debian.patch
+cxxtemplate.patch

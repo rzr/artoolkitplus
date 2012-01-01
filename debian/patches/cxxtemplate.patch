@@ -1,0 +1,49 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ artoolkitplus (2.1.1-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Author: Philippe Coval <rzr@gna.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- artoolkitplus-2.1.1.orig/include/ARToolKitPlus/TrackerImpl.h
++++ artoolkitplus-2.1.1/include/ARToolKitPlus/TrackerImpl.h
+@@ -198,7 +198,7 @@ public:
+ 	 * in an ARToolKit camera calibration file.
+ 	 * Returns true if loading of the camera file succeeded.
+ 	 */
+-	static bool calcCameraMatrix(const char* nCamParamFile, int nWidth, int nHeight,
++	virtual bool calcCameraMatrix(const char* nCamParamFile, int nWidth, int nHeight,
+ 								 ARFloat nNear, ARFloat nFar, ARFloat *nMatrix);
+ 
+ 	
+--- artoolkitplus-2.1.1.orig/src/TrackerImpl.cxx
++++ artoolkitplus-2.1.1/src/TrackerImpl.cxx
+@@ -446,7 +446,9 @@ AR_TEMPL_TRACKER::calcCameraMatrix(const
+ 		return(false);
+ 	}
+ 
+-	pCam->changeFrameSize(AR_TEMPL_TRACKER::screenWidth,AR_TEMPL_TRACKER::screenHeight);
++	pCam->changeFrameSize
++	  ( /* AR_TEMPL_TRACKER:: */ screenWidth,
++	    /* AR_TEMPL_TRACKER:: */ screenHeight);
+ 
+ 	int i;
+     for(i = 0; i < 4; i++ )

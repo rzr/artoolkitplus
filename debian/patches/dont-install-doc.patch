@@ -1,0 +1,11 @@
+diff -rupN ARToolKitPlus-2.1.1/src/src.pro ARToolKitPlus-2.1.1_mod/src/src.pro
+--- ARToolKitPlus-2.1.1/src/src.pro	2006-04-19 17:50:06.000000000 +0200
++++ ARToolKitPlus-2.1.1_mod/src/src.pro	2010-05-16 12:07:51.686636133 +0200
+@@ -74,6 +74,6 @@ data_simple.files = ../sample/simple/dat
+ data_multi.path = ""/$$PREFIX/share/ARToolKitPlus/multi/data
+ data_multi.files = ../sample/multi/data/*.dat ../sample/multi/data/*.cal ../sample/multi/data/*.raw ../sample/multi/data/*.jpg
+ 
+-INSTALLS += target headers headers_extra doc data_simple data_multi
++INSTALLS += target headers headers_extra data_simple data_multi
+ 
+ ################################

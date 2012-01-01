@@ -1,0 +1,192 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ artoolkitplus (2.1.1-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Author: Philippe Coval <rzr@gna.org>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- artoolkitplus-2.1.1.orig/tools/IdPatGen/src/PN/Image.cpp
++++ artoolkitplus-2.1.1/tools/IdPatGen/src/PN/Image.cpp
+@@ -35,7 +35,6 @@
+ 
+ #include <cstdio>
+ #include <cstdlib>
+-#include <cstring>
+ #include <string>
+ 
+ #if defined(TARGET_HOST_WIN32) || defined(TARGET_HOST_WINCE)
+--- artoolkitplus-2.1.1.orig/tools/IdPatGen/src/PN/ImageTool.cpp
++++ artoolkitplus-2.1.1/tools/IdPatGen/src/PN/ImageTool.cpp
+@@ -32,7 +32,6 @@
+ #include "PocketKnife.h"
+ #include "ImageTool.h"
+ 
+-#include <cstring>
+ #include <cstdio>
+ #include <string>
+ 
+--- artoolkitplus-2.1.1.orig/include/ARToolKitPlus/TrackerImpl.h
++++ artoolkitplus-2.1.1/include/ARToolKitPlus/TrackerImpl.h
+@@ -198,7 +198,7 @@ public:
+ 	 * in an ARToolKit camera calibration file.
+ 	 * Returns true if loading of the camera file succeeded.
+ 	 */
+-	virtual bool calcCameraMatrix(const char* nCamParamFile, int nWidth, int nHeight,
++	static bool calcCameraMatrix(const char* nCamParamFile, int nWidth, int nHeight,
+ 								 ARFloat nNear, ARFloat nFar, ARFloat *nMatrix);
+ 
+ 	
+@@ -659,40 +659,40 @@ protected:
+ 
+ // this is templated code, so we need to include all this here...
+ //
+-#include <ARToolKitPlus/src/extra/FixedPoint.h>
+-#include <ARToolKitPlus/src/core/arBitFieldPattern.cxx>
+-#include <ARToolKitPlus/src/core/arDetectMarker.cxx>
+-#include <ARToolKitPlus/src/core/arDetectMarker2.cxx>
+-#include <ARToolKitPlus/src/core/arGetCode.cxx>
+-#include <ARToolKitPlus/src/core/arGetMarkerInfo.cxx>
+-#include <ARToolKitPlus/src/core/arGetTransMat.cxx>
+-#include <ARToolKitPlus/src/core/arGetTransMat2.cxx>
+-#include <ARToolKitPlus/src/core/arGetTransMat3.cxx>
+-#include <ARToolKitPlus/src/core/rppGetTransMat.cxx> // RPP integration -- [t.pintaric]
+-#include <ARToolKitPlus/src/core/arGetTransMatCont.cxx>
+-#include <ARToolKitPlus/src/core/arLabeling.cxx>
+-#include <ARToolKitPlus/src/core/arMultiActivate.cxx>
+-#include <ARToolKitPlus/src/core/arMultiGetTransMat.cxx>
+-#include <ARToolKitPlus/src/core/rppMultiGetTransMat.cxx> // RPP integration -- [t.pintaric]
+-#include <ARToolKitPlus/src/core/arMultiReadConfigFile.cxx>
+-#include <ARToolKitPlus/src/core/arUtil.cxx>
+-#include <ARToolKitPlus/src/core/matrix.cxx>
+-#include <ARToolKitPlus/src/core/mPCA.cxx>
+-//#include <ARToolKitPlus/src/core/paramChangeSize.cxx>
+-#include <ARToolKitPlus/src/core/paramDecomp.cxx>
+-#include <ARToolKitPlus/src/core/paramDistortion.cxx>
+-#include <ARToolKitPlus/src/core/byteSwap.cxx>
+-#include <ARToolKitPlus/src/core/paramFile.cxx>
+-#include <ARToolKitPlus/src/core/vector.cxx>
+-
+-#include <ARToolKitPlus/src/CameraImpl.cxx>
+-#include <ARToolKitPlus/src/CameraAdvImpl.cxx>
+-#include <ARToolKitPlus/src/CameraFactory.cxx>
+-#include <ARToolKitPlus/src/extra/BCH.cxx>
+-
+-#include <ARToolKitPlus/src/TrackerImpl.cxx>
+-//#include <ARToolKitPlus/src/extra/harrisCornerDetector.cxx>
+-//#include <ARToolKitPlus/src/extra/cornerRefinement.cxx>
++#include "../../src/extra/FixedPoint.h"
++#include "../../src/core/arBitFieldPattern.cxx"
++#include "../../src/core/arDetectMarker.cxx"
++#include "../../src/core/arDetectMarker2.cxx"
++#include "../../src/core/arGetCode.cxx"
++#include "../../src/core/arGetMarkerInfo.cxx"
++#include "../../src/core/arGetTransMat.cxx"
++#include "../../src/core/arGetTransMat2.cxx"
++#include "../../src/core/arGetTransMat3.cxx"
++#include "../../src/core/rppGetTransMat.cxx" // RPP integration -- [t.pintaric]
++#include "../../src/core/arGetTransMatCont.cxx"
++#include "../../src/core/arLabeling.cxx"
++#include "../../src/core/arMultiActivate.cxx"
++#include "../../src/core/arMultiGetTransMat.cxx"
++#include "../../src/core/rppMultiGetTransMat.cxx" 	// RPP integration -- [t.pintaric]
++#include "../../src/core/arMultiReadConfigFile.cxx"
++#include "../../src/core/arUtil.cxx"
++#include "../../src/core/matrix.cxx"
++#include "../../src/core/mPCA.cxx"
++//#include "../../src/core/paramChangeSize.cxx"
++#include "../../src/core/paramDecomp.cxx"
++#include "../../src/core/paramDistortion.cxx"
++#include "../../src/core/byteSwap.cxx"
++#include "../../src/core/paramFile.cxx"
++#include "../../src/core/vector.cxx"
++
++#include "../../src/CameraImpl.cxx"
++#include "../../src/CameraAdvImpl.cxx"
++#include "../../src/CameraFactory.cxx"
++#include "../../src/extra/BCH.cxx"
++
++#include "../../src/TrackerImpl.cxx"
++//#include "../../src/extra/harrisCornerDetector.cxx"
++//#include "../../src/extra/cornerRefinement.cxx"
+ 
+ 
+ #endif //__ARTOOLKIT_TRACKERIMPL_HEADERFILE__
+--- artoolkitplus-2.1.1.orig/include/ARToolKitPlus/TrackerSingleMarkerImpl.h
++++ artoolkitplus-2.1.1/include/ARToolKitPlus/TrackerSingleMarkerImpl.h
+@@ -178,7 +178,7 @@ protected:
+ 
+ }	// namespace ARToolKitPlus
+ 
+-#include <ARToolKitPlus/src/TrackerSingleMarkerImpl.cxx>
++#include "../src/TrackerSingleMarkerImpl.cxx"
+ 
+ 
+ #endif //__ARTOOLKITPLUS_TRACKERSINGLEMARKERIMPL_HEADERFILE__
+--- artoolkitplus-2.1.1.orig/include/ARToolKitPlus/TrackerMultiMarkerImpl.h
++++ artoolkitplus-2.1.1/include/ARToolKitPlus/TrackerMultiMarkerImpl.h
+@@ -183,7 +183,7 @@ protected:
+ };	// namespace ARToolKitPlus
+ 
+ 
+-#include <ARToolKitPlus/src/TrackerMultiMarkerImpl.cxx>
++#include "../src/TrackerMultiMarkerImpl.cxx"
+ 
+ 
+ #endif //__ARTOOLKITPLUS_TRACKERMULTIMARKERIMPL_HEADERFILE__
+--- artoolkitplus-2.1.1.orig/src/TrackerImpl.cxx
++++ artoolkitplus-2.1.1/src/TrackerImpl.cxx
+@@ -446,7 +446,7 @@ AR_TEMPL_TRACKER::calcCameraMatrix(const
+ 		return(false);
+ 	}
+ 
+-	pCam->changeFrameSize(screenWidth,screenHeight);
++	pCam->changeFrameSize(AR_TEMPL_TRACKER::screenWidth,AR_TEMPL_TRACKER::screenHeight);
+ 
+ 	int i;
+     for(i = 0; i < 4; i++ )
+--- artoolkitplus-2.1.1.orig/src/librpp/rpp_vecmat.cpp
++++ artoolkitplus-2.1.1/src/librpp/rpp_vecmat.cpp
+@@ -40,11 +40,10 @@
+ 
+ #ifndef _NO_LIBRPP_
+ 
+-#include <cstdlib>
+-#include <cstdio>
++
+ #include "rpp_vecmat.h"
+-#include <cmath>
+-#include <cassert>
++#include "math.h"
++#include "assert.h"
+ 
+ 
+ namespace rpp {
+--- artoolkitplus-2.1.1.orig/src/librpp/rpp.cpp
++++ artoolkitplus-2.1.1/src/librpp/rpp.cpp
+@@ -43,7 +43,7 @@
+ 
+ #ifndef _NO_LIBRPP_
+ 
+-#include <cstring>
++
+ #include <vector>
+ #include "assert.h"
+ 

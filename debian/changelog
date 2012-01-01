@@ -1,6 +1,12 @@
+artoolkitplus (2.1.1-2~rzr1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * http://rzr.online.fr/q/downstream
+
+ -- Philippe Coval <rzr@gna.org>  Sun, 01 Jan 2012 17:58:40 +0100
+
 artoolkitplus (2.1.1-1) unstable; urgency=low
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
 
  -- Philippe Coval <rzr@users.sf.net>  Sat, 20 Jan 2007 00:47:38 +0100
-
